@@ -8,7 +8,7 @@ def PlaceData():
     while True:
         url = urllib2.urlopen('https://maps.googleapis.com/maps/api/place/textsearch/json?query=yerevan+{}&key={}'.format(search, API_KEY))
         data = json.load(url)
-        if data['status'] == 'ZERO_RESULTS':
+        if data['status'] == 'ZERO_RESULTS' or search == '':
             search = ''.join(raw_input('Something went wrong, try again ').split())
         else:
             break
